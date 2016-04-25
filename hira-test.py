@@ -1,6 +1,7 @@
 import romkan
 import random
 import gzip
+import readline
 
 words = list(gzip.open("hira.list.gz", mode="rt"))
 
