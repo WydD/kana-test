@@ -14,6 +14,7 @@ To launch a test for hiragana reading with 3 tries allowed.
 Download edict2 from http://www.edrdg.org/jmdict/edict.html uncompress it then run gen-hira.py
 
 ## Sample
+Hira
 ```
 ~> python kana-test.py hira 2
 まちぜんたい
@@ -31,5 +32,18 @@ Download edict2 from http://www.edrdg.org/jmdict/edict.html uncompress it then r
 じんみんせんせん
 > jinhensensen
 	WRONG!
-	Answer was jinminsensen
+	Answer was jin mi nsensen
+	You wrote: jin[he]nsensen
+```
+
+Kata
+```
+~> python kana-test.py kata 1
+> kikitsutaeru
+	correct!
+シメシアワス
+> shinoshiawasu
+	WRONG!
+	Answer was shi me shiawasu
+	You wrote: shi[no]shiawasu
 ```
