@@ -28,7 +28,7 @@ while True:
         to_write = romkan.to_katakana(roma)+"\n"
     tries = 0
     while tries < max_tries:
-        answer = input(to_write)
+        answer = input(to_write+"> ")
         if answer.strip() == roma:
             print("\tcorrect!")
             break
