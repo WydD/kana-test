@@ -4,8 +4,6 @@ import gzip
 import readline
 import sys
 
-words = list(gzip.open("hira.list.gz", mode="rt", encoding="utf-8"))
-
 if len(sys.argv) != 3:
     print("Usage: python kana-test.py {hira|kata} max_tries")
     exit(1)
@@ -19,6 +17,8 @@ if mode is None:
     print("Usage: python kana-test.py {hira|kata} max_tries")
     exit(1)
 max_tries = int(sys.argv[2])
+
+words = list(gzip.open("hira.list.gz", mode="rt", encoding="utf-8"))
 
 while True:
     i = random.randint(0, len(words))
