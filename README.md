@@ -14,7 +14,8 @@ To launch a test for hiragana reading with 3 tries allowed.
 Download edict2 from http://www.edrdg.org/jmdict/edict.html uncompress it then run gen-hira.py
 
 ## Sample
-```~> python kana-test.py hira 2
+```
+~> python kana-test.py hira 2
 まちぜんたい
 > machizentai
 	correct!
