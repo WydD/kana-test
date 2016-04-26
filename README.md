@@ -39,6 +39,7 @@ Hira
 Kata
 ```
 ~> python kana-test.py kata 1
+キキツタエル
 > kikitsutaeru
 	correct!
 シメシアワス
