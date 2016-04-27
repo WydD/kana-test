@@ -23,13 +23,18 @@ function next() {
     draw();
 }
 
+function getTypingSpeed(toGuess) {
+    var speed = (((new Date().getTime() - start) / 1000) / toGuess.length);
+    return speed.toFixed(2);
+}
 function getTemplateResult(result, given, expected) {
+    var toGuess = $("#label").text();
     return $(templateResult
         .replace('$1', result ? "ok" : "remove")
-        .replace('$2', $("#label").text())
+        .replace('$2', toGuess)
         .replace('$3', given)
         .replace('$4', expected)
-        .replace('$5', ((new Date().getTime() - start) / 1000)+"s")
+        .replace('$5', getTypingSpeed(toGuess)+" sec/char")
     );
 }
 
