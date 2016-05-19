@@ -12,9 +12,7 @@ class Plain:
 
     def past(self):
         # TE form with an a
-        hepburn = romkan.to_hepburn(self.verb.base(BaseForms.TE))
-        hepburn[-1] = 'a'
-        return romkan.to_hiragana(hepburn)
+        return romkan.to_hiragana(romkan.to_hepburn(self.verb.base(BaseForms.TE))[:-1]+"a")
 
     def te(self):
         return self.verb.base(BaseForms.TE)
@@ -23,6 +21,8 @@ class Plain:
         return self.verb.base(BaseForms.I)
 
     def passive(self):
+        if self.is_ru:
+            return self.verb.stem() + "られる"
         return self.verb.base(BaseForms.A) + "れる"
 
     def causative(self):
@@ -33,14 +33,14 @@ class Plain:
     def causative_passive(self):
         # Short for interpreting the causative form as a RU verb
         # Equivalent to Plain(RUVerb(self.causative())).passive()
-        return self.causative()[0:-1] + "られる"
+        return Plain.causative(self)[0:-1] + "られる"
 
     def volitional(self):
         return self.verb.base(BaseForms.O)
 
     def imperative(self):
         if self.is_ru:
-            return self.verb.stem() + "ら"
+            return self.verb.stem() + "ろ"
         return self.verb.base(BaseForms.E)
 
     def conditional(self):
@@ -118,7 +118,7 @@ class Negative(Plain):
         return self.past() + "ら"
 
     def imperative(self):
-        return self.present() + "で"
+        return self.verb.base(BaseForms.U) + "な"
 
     def passive(self):
         # Re conjugation as the present of the passive (ru form)
