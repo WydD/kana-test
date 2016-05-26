@@ -58,10 +58,11 @@ class Plain:
 class Polite(Plain):
     def __init__(self, verb):
         super().__init__(verb)
+        self.polite_suffix = "ます"
         self.masu_base = self.i()
 
     def present(self):
-        return self.masu_base + "ます"
+        return self.masu_base + self.polite_suffix
 
     def past(self):
         return self.masu_base + "ました"
@@ -77,23 +78,23 @@ class Polite(Plain):
         return self.past() + "ら"
 
     def imperative(self):
-        return self.te() + " ください"
+        return self.te() + "ください"
 
     def passive(self):
         # Re conjugation as the present of the passive (ru form)
-        return Plain.passive(self)[0:-1] + "ます"
+        return Plain.passive(self)[0:-1] + self.polite_suffix
 
     def causative(self):
         # Re conjugation as the present of the causative (ru form)
-        return Plain.causative(self)[0:-1] + "ます"
+        return Plain.causative(self)[0:-1] + self.polite_suffix
 
     def causative_passive(self):
         # Re conjugation as the present of the causative (ru form)
-        return Plain.causative_passive(self)[0:-1] + "ます"
+        return Plain.causative_passive(self)[0:-1] + self.polite_suffix
 
     def potential(self):
         # Re conjugation as the present of the potential (ru form)
-        return Plain.potential(self)[0:-1] + "ます"
+        return Plain.potential(self)[0:-1] + self.polite_suffix
 
 
 class Negative(Plain):
@@ -135,3 +136,26 @@ class Negative(Plain):
     def potential(self):
         # Re conjugation as the present of the potential (ru form)
         return Plain.potential(self)[0:-1] + "ない"
+
+
+class PoliteNegative(Polite, Negative):
+    def __init__(self, verb):
+        Polite.__init__(self, verb)
+        Negative.__init__(self, verb)
+
+        self.polite_suffix = "ません"
+
+    def past(self):
+        return self.present() + "でした"
+
+    def conditional(self):
+        return self.present() + "なら"
+
+    def conditional_past(self):
+        return self.present() + "でしたら"
+
+    def volitional(self):
+        return Negative.present(self) + "でしょう"
+
+    def imperative(self):
+        return Negative.present(self) + "でください"

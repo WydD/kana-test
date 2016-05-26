@@ -1,0 +1,13 @@
+Forms (A, I, U, E, O, TE)
+かわ | かい | かう |　かえ　| かおう | かって
+Conjugation (Plain, Polite, Negative, Negative Polite)
+Present				| かう			|	かいます			|	かわない			|	かいません
+Past				| かった			|	かいました		|	かわなかった		|	かいませんでした
+Imperative			| かえ			|	かってください	|	かうな			|	かわないでください
+Volitional			| かおう			|	かいましょう		|	かうまい			|	かわないでしょう
+Conditional			| かえば			|	かいますれば		|	かわなければ		|	かいませんなら
+Conditional past	| かったら		|	かいましたら		|	かわなかったら	|	かいませんでしたら
+Passive				| かわれる		|	かわれます		|	かわれない		|	かわれません
+Potential			| かえる			|	かえます			|	かえない			|	かえません
+Causative			| かわせる		|	かわせます		|	かわせない		|	かわせません
+Causative passive	| かわせられる	|	かわせられます	|	かわせられない	|	かわせられません

@@ -1,0 +1,13 @@
+Forms (A, I, U, E, O, TE)
+たべ | たべ | たべる | たべれ | たべよう | たべて
+Conjugation (Plain, Polite, Negative, Negative Polite)
+Present				| たべる			|	たべます			|	たべない			|	たべません
+Past				| たべた			|	たべました		|	たべなかった		|	たべませんでした
+Imperative			| たべろ			|	たべてください	|	たべるな			|	たべないでください
+Volitional			| たべよう		|	たべましょう		|	たべまい			|	たべないでしょう
+Conditional			| たべれば		|	たべますれば		|	たべなければ		|	たべませんなら
+Conditional past	| たべたら		|	たべましたら		|	たべなかったら	|	たべませんでしたら
+Passive				| たべられる		|	たべられます		|	たべられない		|	たべられません
+Potential			| たべられる		|	たべられます		|	たべられない		|	たべられません
+Causative			| たべさせる		|	たべさせます		|	たべさせない		|	たべさせません
+Causative passive	| たべさせられる	|	たべさせられます	|	たべさせられない	|	たべさせられません

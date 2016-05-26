@@ -3,7 +3,7 @@ import unittest
 from verbs.verb import RUVerb, UVerb
 import unittest
 
-from verbs.conjugation import Plain, Polite, Negative
+from verbs.conjugation import Plain, Polite, Negative, PoliteNegative
 from verbs.verb import BaseForms
 
 class VerbTest(unittest.TestCase):
@@ -12,8 +12,8 @@ class VerbTest(unittest.TestCase):
         self.table = table
         self.verb = verb
         split = [[c.strip() for c in l.split('|')] for l in self.table.split("\n")]
-        self.forms = split[2]
-        self.conjugation = split[4:]
+        self.forms = split[1]
+        self.conjugation = split[3:]
 
     def __str__(self):
         return "%s (%s)" % (self.verb._plain_form, self._testMethodName)
@@ -60,36 +60,11 @@ class VerbTest(unittest.TestCase):
     def test_negative(self):
         self.execute(3, Negative)
 
+    def test_polite_negative(self):
+        self.execute(4, PoliteNegative)
+
 
 suite = unittest.TestSuite()
-suite.addTest(VerbTest.create(RUVerb("たべる"), """
-Forms (A, I, U, E, O, TE)
-たべ | たべ | たべる | たべれ | たべよう | たべて
-Conjugation (Plain, Polite, Negative, Negative Polite)
-Present				| たべる			|	たべます			|	たべない
-Past				| たべた			|	たべました		|	たべなかった
-Imperative			| たべろ			|	たべて ください	|	たべるな
-Volitional			| たべよう		|	たべましょう		|	たべまい
-Conditional			| たべれば		|	たべますれば		|	たべなければ
-Conditional past	| たべたら		|	たべましたら		|	たべなかったら
-Passive				| たべられる		|	たべられます		|	たべられない
-Potential			| たべられる		|	たべられます		|	たべられない
-Causative			| たべさせる		|	たべさせます		|	たべさせない
-Causative passive	| たべさせられる	|	たべさせられます	|	たべさせられない
-"""))
-suite.addTest(VerbTest.create(UVerb("かう"), """
-Forms (A, I, U, E, O, TE)
-かわ | かい | かう |　かえ　| かおう | かって
-Conjugation (Plain, Polite, Negative, Negative Polite)
-Present				| かう			|	かいます			|	かわない
-Past				| かった			|	かいました		|	かわなかった
-Imperative			| かえ			|	かって ください	|	かうな
-Volitional			| かおう			|	かいましょう		|	かうまい
-Conditional			| かえば			|	かいますれば		|	かわなければ
-Conditional past	| かったら		|	かいましたら		|	かわなかったら
-Passive				| かわれる		|	かわれます		|	かわれない
-Potential			| かえる			|	かえます			|	かえない
-Causative			| かわせる		|	かわせます		|	かわせない
-Causative passive	| かわせられる	|	かわせられます	|	かわせられない
-"""))
+suite.addTest(VerbTest.create(RUVerb("たべる"), open("tests/taberu.txt").read()))
+suite.addTest(VerbTest.create(UVerb("かう"), open("tests/kau.txt").read()))
 unittest.TextTestRunner(verbosity=2).run(suite)
