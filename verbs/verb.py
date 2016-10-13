@@ -104,3 +104,21 @@ class UVerb(Verb):
         super().__init__(plain_form)
         self.is_ru = False
         self._base_table = uverb_base_table[plain_form[-1]]
+
+
+class SuruVerb(Verb):
+    def __init__(self):
+        super().__init__("する")
+        self.is_ru = False
+        self._base_table = {
+            "a": "し",
+            "i": "し",
+            "e": "すれ",
+            "o": "しよう",
+            "te": "して"
+        }
+
+    def base(self, base_form):
+        if base_form == BaseForms.U:
+            return self._plain_form
+        return self._stem + self._base_table[base_form.value]
